@@ -1,0 +1,46 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.mrdong'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+
+//阿里的
+allprojects {
+	repositories {
+		maven {
+			url 'https://maven.aliyun.com/repository/public/'
+		}
+		maven {
+			url 'https://maven.aliyun.com/repository/spring/'
+		}
+		mavenLocal()
+		mavenCentral()
+	}
+}
+
+//开源中国
+repositories {
+	maven{ url 'https://maven.oschina.net/content/groups/public/'}
+	maven{ url 'https://maven.oschina.net/content/groups/spring/'}
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.apache.commons:commons-imaging:1.0-alpha1'
+	implementation 'cn.hutool:hutool-all:5.0.3'
+
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
